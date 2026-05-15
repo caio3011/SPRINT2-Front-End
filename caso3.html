@@ -5,28 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JOVI – Caso 3</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /*
+      floresta.png: 600x400 landscape → viewfinder 375x597
+      scale = max(375/600, 597/400) = max(0.625, 1.493) = 1.493
+      rendered = 896x597, offset_x = (896-375)/2 = 260px
+      Imagem muito escura por padrão — o botão ☀ controla o brilho.
+    */
+  </style>
 </head>
 <body data-page="3">
 <div class="phone">
 
   <div class="top-bar">
     <button class="icon-btn" id="btn-hd">HD</button>
-    <button class="icon-btn" id="btn-mute">
-      <svg viewBox="0 0 24 24"><line x1="2" y1="2" x2="22" y2="22"/><path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"/><path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2c0 .35-.03.7-.08 1"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
-    </button>
-    <button class="icon-btn" id="btn-modes">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-    </button>
-    <button class="icon-btn" id="btn-gear">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-    </button>
+    <button class="icon-btn" id="btn-mute"><svg viewBox="0 0 24 24"><line x1="2" y1="2" x2="22" y2="22"/><path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"/><path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2c0 .35-.03.7-.08 1"/><line x1="12" y1="19" x2="12" y2="22"/></svg></button>
+    <!-- ☀ = controle de claridade no caso 3 -->
+    <button class="icon-btn" id="btn-modes"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></button>
+    <button class="icon-btn" id="btn-gear"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
   </div>
 
   <div class="viewfinder">
     <div class="vf-inner" id="vf-inner">
-      <img class="bg-img"
-        src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=85"
-        alt="Floresta escura">
+      <img class="bg-img" id="bg-img-main" src="img/floresta.png" alt="Floresta noturna">
       <div class="dark-ov" id="dark-ov"></div>
       <div class="mode-badge" id="mode-badge">Modo Escuro</div>
     </div>
@@ -39,29 +40,22 @@
     <div class="timer-ov" id="timer-ov"></div>
     <div class="flash" id="flash"></div>
 
-    <!-- GALLERY -->
     <div class="gallery-overlay" id="gallery-overlay">
       <div class="gallery-header">
         <span class="gallery-title">Galeria · Casos</span>
         <button class="gallery-close" id="gallery-close">✕</button>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-thumb" data-page="caso1.html"
-          data-src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500&q=80"
-          data-label="Modo Documento">
-          <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=200&q=70" alt="">
+        <div class="gallery-thumb" data-page="caso1.html" data-src="img/lousa.png" data-label="Modo Documento">
+          <img src="img/lousa.png" alt="Caso 1">
           <div class="thumb-label">Caso 1</div>
         </div>
-        <div class="gallery-thumb" data-page="caso2.html"
-          data-src="https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?w=500&q=80"
-          data-label="Modo Retrato">
-          <img src="https://images.unsplash.com/photo-1607748862156-7c548e7e98f4?w=200&q=70" alt="">
+        <div class="gallery-thumb" data-page="caso2.html" data-src="img/grupo.png" data-label="Modo Retrato">
+          <img src="img/grupo.png" alt="Caso 2">
           <div class="thumb-label">Caso 2</div>
         </div>
-        <div class="gallery-thumb" data-page="caso3.html"
-          data-src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=500&q=80"
-          data-label="Modo Escuro">
-          <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=200&q=70" alt="">
+        <div class="gallery-thumb selected" data-page="caso3.html" data-src="img/floresta.png" data-label="Modo Escuro">
+          <img src="img/floresta.png" alt="Caso 3">
           <div class="thumb-label">Caso 3</div>
         </div>
       </div>
@@ -85,23 +79,10 @@
       <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
     </button>
     <button class="shutter" id="shutter"><div class="shutter-dot"></div></button>
-    <button class="side-btn">
-      <svg viewBox="0 0 24 24"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
-    </button>
+    <button class="side-btn"><svg viewBox="0 0 24 24"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg></button>
   </div>
 
 </div>
 <script src="shared.js"></script>
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const badge  = document.getElementById('mode-badge');
-    const darkOv = document.getElementById('dark-ov');
-    setTimeout(() => {
-      badge.classList.add('show');
-      setTimeout(() => badge.classList.remove('show'), 2800);
-    }, 400);
-    setTimeout(() => { darkOv.style.opacity = '0'; }, 800);
-  });
-</script>
 </body>
 </html>
